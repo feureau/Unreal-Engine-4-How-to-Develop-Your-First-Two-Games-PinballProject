@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from Z:\app\src\main\AndroidManifest.xml:1:1-42:12
+ADDED from Z:\app\src\main\AndroidManifest.xml:1:1-40:12
 	package
 		ADDED from Z:\app\src\main\AndroidManifest.xml:1:70-99
 		INJECTED from Z:\app\src\main\AndroidManifest.xml
@@ -95,9 +95,9 @@ ADDED from Z:\app\src\main\AndroidManifest.xml:13:5-104
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:13:16-83
 meta-data#com.epicgames.ue4.GameActivity.bPackageDataInsideApk
-ADDED from Z:\app\src\main\AndroidManifest.xml:14:5-107
+ADDED from Z:\app\src\main\AndroidManifest.xml:14:5-108
 	android:value
-		ADDED from Z:\app\src\main\AndroidManifest.xml:14:84-104
+		ADDED from Z:\app\src\main\AndroidManifest.xml:14:84-105
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:14:16-83
 meta-data#com.epicgames.ue4.GameActivity.bVerifyOBBOnStartUp
@@ -252,10 +252,6 @@ uses-permission#android.permission.VIBRATE
 ADDED from Z:\app\src\main\AndroidManifest.xml:39:3-64
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:39:20-61
-supports-gl-texture#GL_OES_compressed_ETC1_RGB8_texture
-ADDED from Z:\app\src\main\AndroidManifest.xml:41:3-77
-	android:name
-		ADDED from Z:\app\src\main\AndroidManifest.xml:41:24-74
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:11.0.4] Z:\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\11.0.4\AndroidManifest.xml:20:9-189
 	android:excludeFromRecents

@@ -8,12 +8,12 @@
         "source": "Z:\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\11.0.4\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
     },
     {
-        "merged": "Z:\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png",
-        "source": "Z:\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-plus\\11.0.4\\res\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png"
-    },
-    {
         "merged": "Z:\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\googleg_standard_color_18.png",
         "source": "Z:\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\11.0.4\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "Z:\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png",
+        "source": "Z:\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-plus\\11.0.4\\res\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png"
     },
     {
         "merged": "Z:\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",

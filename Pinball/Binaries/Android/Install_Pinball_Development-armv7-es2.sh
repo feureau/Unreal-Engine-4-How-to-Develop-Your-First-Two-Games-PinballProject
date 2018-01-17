@@ -21,11 +21,11 @@ if [ $? -eq 0 ]; then
 	$ADB $DEVICE shell 'rm -r $EXTERNAL_STORAGE/UE4Game/UE4CommandLine.txt'
 	$ADB $DEVICE shell 'rm -r $EXTERNAL_STORAGE/obb/com.feureau.pinball'
 	$ADB $DEVICE shell 'rm -r $EXTERNAL_STORAGE/Android/obb/com.feureau.pinball'
-
-
-
-
-if [ 1 ]; then
+	echo
+	echo Installing new data. Failures here indicate storage problems \(missing SD card or bad permissions\) and are fatal.
+	STORAGE=$(echo "`$ADB $DEVICE shell 'echo $EXTERNAL_STORAGE'`" | cat -v | tr -d '^M')
+	$ADB $DEVICE push main.1.com.feureau.pinball.obb $STORAGE/obb/com.feureau.pinball/main.1.com.feureau.pinball.obb
+	if [ $? -eq 0 ]; then
 
 		echo
 		echo Installation successful

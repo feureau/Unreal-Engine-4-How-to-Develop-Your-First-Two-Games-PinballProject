@@ -20,8 +20,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <!-- Supported texture compression formats (cooked) -->
-    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
     <!-- Application Definition -->
     <application
         android:hardwareAccelerated="true"
@@ -56,7 +54,7 @@
             android:value="0" />
         <meta-data
             android:name="com.epicgames.ue4.GameActivity.bPackageDataInsideApk"
-            android:value="true" />
+            android:value="false" />
         <meta-data
             android:name="com.epicgames.ue4.GameActivity.bVerifyOBBOnStartUp"
             android:value="false" />

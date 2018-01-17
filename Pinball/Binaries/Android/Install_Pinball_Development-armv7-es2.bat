@@ -16,10 +16,10 @@ for /f "delims=" %%A in ('%ADB% %DEVICE% shell "echo $EXTERNAL_STORAGE"') do @se
 %ADB% %DEVICE% shell rm -r %STORAGE%/UE4Game/UE4CommandLine.txt
 %ADB% %DEVICE% shell rm -r %STORAGE%/obb/com.feureau.pinball
 %ADB% %DEVICE% shell rm -r %STORAGE%/Android/obb/com.feureau.pinball
-
-
-
-
+@echo.
+@echo Installing new data. Failures here indicate storage problems (missing SD card or bad permissions) and are fatal.
+%ADB% %DEVICE% push main.1.com.feureau.pinball.obb %STORAGE%/obb/com.feureau.pinball/main.1.com.feureau.pinball.obb
+if "%ERRORLEVEL%" NEQ "0" goto Error
 
 
 @echo.
