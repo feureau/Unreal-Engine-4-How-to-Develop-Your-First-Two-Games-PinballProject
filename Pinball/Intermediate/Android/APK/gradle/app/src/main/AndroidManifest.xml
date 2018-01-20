@@ -9,7 +9,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".DownloaderActivity" />
-    <meta-data android:name="com.epicgames.ue4.GameActivity.EngineVersion" android:value="4.18.2" />
+    <meta-data android:name="com.epicgames.ue4.GameActivity.EngineVersion" android:value="4.19.0" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.DepthBufferPreference" android:value="0" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.bPackageDataInsideApk" android:value="false" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.bVerifyOBBOnStartUp" android:value="false" />
@@ -17,6 +17,8 @@
     <meta-data android:name="com.epicgames.ue4.GameActivity.ProjectName" android:value="Pinball" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.bHasOBBFiles" android:value="true" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.BuildConfiguration" android:value="Development" />
+    <meta-data android:name="com.epicgames.ue4.GameActivity.CookedFlavors" android:value="ETC1" />
+    <meta-data android:name="com.epicgames.ue4.GameActivity.bValidateTextureFormats" android:value="true" />
     <meta-data android:name="com.epicgames.ue4.GameActivity.bUseExternalFilesDir" android:value="false" />
     <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
@@ -24,6 +26,11 @@
     <service android:name="OBBDownloaderService" />
     <receiver android:name="AlarmReceiver" />
     <receiver android:name="com.epicgames.ue4.LocalNotificationReceiver" />
+    <receiver android:name="com.epicgames.ue4.MulticastBroadcastReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+      </intent-filter>
+    </receiver>
     <meta-data android:name="android.max_aspect" android:value="2.10" />
   </application>
   <!-- Requirements -->
@@ -37,4 +44,6 @@
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
   <uses-permission android:name="android.permission.VIBRATE" />
+  <!-- Supported texture compression formats (cooked) -->
+  <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
 </manifest>

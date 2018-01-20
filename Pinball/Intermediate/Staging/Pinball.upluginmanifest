@@ -78,6 +78,47 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Editor/CryptoKeys/CryptoKeys.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "CryptoKeys",
+				"Description": "",
+				"Category": "Other",
+				"CreatedBy": "",
+				"CreatedByURL": "",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "CryptoKeys",
+						"Type": "Developer",
+						"LoadingPhase": "Default",
+						"WhitelistPlatforms": [
+							"Mac",
+							"Win64",
+							"Linux"
+						]
+					},
+					{
+						"Name": "CryptoKeysOpenSSL",
+						"Type": "Developer",
+						"LoadingPhase": "Default",
+						"WhitelistPlatforms": [
+							"Mac",
+							"Win64",
+							"Linux"
+						]
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Editor/FacialAnimation/FacialAnimation.uplugin",
 			"Descriptor": 
 			{
@@ -105,6 +146,32 @@
 						"Name": "FacialAnimationEditor",
 						"Type": "Editor",
 						"LoadingPhase": "PreDefault"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Enterprise/DatasmithContent/DatasmithContent.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "DatasmithContent",
+				"Description": "Content for Datasmith Importer.",
+				"Category": "Enterprise",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "DatasmithContent",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
 					}
 				]
 			}
@@ -236,6 +303,32 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Media/LinearTimecode/LinearTimecode.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Linear Timecode Reader",
+				"Description": "Read Linear Timecode from an audio source.",
+				"Category": "Media Players",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "LinearTimecode",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Media/MediaCompositing/MediaCompositing.uplugin",
 			"Descriptor": 
 			{
@@ -346,7 +439,7 @@
 					{
 						"Name": "ActorSequence",
 						"Type": "Runtime",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "PreDefault"
 					}
 				]
 			}
@@ -961,6 +1054,58 @@
 						"Name": "ProceduralMeshComponentEditor",
 						"Type": "Editor",
 						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Runtime/ResonanceAudio/ResonanceAudio.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Resonance Audio",
+				"Description": "3D audio spatialization and room acoustics simulation plugin by Google.",
+				"Category": "Audio",
+				"CreatedBy": "Google",
+				"CreatedByURL": "https://developers.google.com/resonance-audio",
+				"DocsURL": "https://developers.google.com/resonance-audio/develop/unreal/getting-started",
+				"MarketplaceURL": "",
+				"SupportURL": "https://developers.google.com/resonance-audio/community/connect",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "ResonanceAudio",
+						"Type": "Runtime",
+						"LoadingPhase": "Default",
+						"WhitelistPlatforms": [
+							"Android",
+							"IOS",
+							"Linux",
+							"Mac",
+							"Win32",
+							"Win64"
+						]
+					},
+					{
+						"Name": "ResonanceAudioEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit",
+						"WhitelistPlatforms": [
+							"Linux",
+							"Mac",
+							"Win32",
+							"Win64"
+						]
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ProceduralMeshComponent",
+						"Enabled": true
 					}
 				]
 			}

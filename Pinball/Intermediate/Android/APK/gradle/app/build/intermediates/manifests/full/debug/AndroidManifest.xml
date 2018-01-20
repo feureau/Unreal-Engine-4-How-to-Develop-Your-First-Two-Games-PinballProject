@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Supported texture compression formats (cooked) -->
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
     <!-- Application Definition -->
     <application
         android:hardwareAccelerated="true"
@@ -48,7 +50,7 @@
 
         <meta-data
             android:name="com.epicgames.ue4.GameActivity.EngineVersion"
-            android:value="4.18.2" />
+            android:value="4.19.0" />
         <meta-data
             android:name="com.epicgames.ue4.GameActivity.DepthBufferPreference"
             android:value="0" />
@@ -71,6 +73,12 @@
             android:name="com.epicgames.ue4.GameActivity.BuildConfiguration"
             android:value="Development" />
         <meta-data
+            android:name="com.epicgames.ue4.GameActivity.CookedFlavors"
+            android:value="ETC1" />
+        <meta-data
+            android:name="com.epicgames.ue4.GameActivity.bValidateTextureFormats"
+            android:value="true" />
+        <meta-data
             android:name="com.epicgames.ue4.GameActivity.bUseExternalFilesDir"
             android:value="false" />
         <meta-data
@@ -89,6 +97,13 @@
 
         <receiver android:name="com.feureau.pinball.AlarmReceiver" />
         <receiver android:name="com.epicgames.ue4.LocalNotificationReceiver" />
+        <receiver
+            android:name="com.epicgames.ue4.MulticastBroadcastReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="android.max_aspect"

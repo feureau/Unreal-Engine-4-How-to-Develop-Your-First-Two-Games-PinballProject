@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
 //This file needs to be here so the "ant" build step doesnt fail when looking for a /src folder.
 
 package com.epicgames.ue4;
@@ -640,7 +640,6 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 			consoleCmdReceiver = new ConsoleCmdReceiver(this);
 			registerReceiver(consoleCmdReceiver, new IntentFilter(Intent.ACTION_RUN));
 		}
-		
 
 		Log.debug("==================================> Inside onStart function in GameActivity");
 	}
@@ -2002,6 +2001,7 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 					else
 					{
 						newVirtualKeyboardInput.setSingleLine(true);
+						newVirtualKeyboardInput.setMaxLines(1);
 						imeOptions &= ~EditorInfo.IME_FLAG_NO_ENTER_ACTION;
 						imeOptions |= EditorInfo.IME_ACTION_DONE;
 					}
@@ -2953,6 +2953,19 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 
 	public int AndroidThunkJava_GetMetaDataInt(String key)
 	{
+		if (key.equals("ue4.http.proxy.proxyPort"))
+		{
+			if (ANDROID_BUILD_VERSION >= 14)
+			{
+				String ProxyPort = System.getProperty("http.proxyPort");
+				return ProxyPort == null ? -1 : Integer.parseInt(ProxyPort);
+			}
+			else
+			{
+				return android.net.Proxy.getPort(getApplicationContext());
+			}
+		}
+		else
 		if (key.equals("android.hardware.vulkan.version"))
 		{
 			return VulkanVersion;
@@ -2991,6 +3004,18 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 
 	public String AndroidThunkJava_GetMetaDataString(String key)
 	{
+		if (key.equals("ue4.http.proxy.proxyHost"))
+		{
+			if (ANDROID_BUILD_VERSION >= 14)
+			{
+				return System.getProperty("http.proxyHost");
+			}
+			else
+			{
+				return android.net.Proxy.getHost(getApplicationContext());
+			}
+		}
+		else
 		if (key.equals("ue4.displaymetrics.dpi"))
 		{
 			DisplayMetrics metrics = new DisplayMetrics();
@@ -3085,7 +3110,8 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 						break;
 					}
 				}
-				if (add) {
+				if (add)
+				{
 					filters = Arrays.copyOf(filters, filters.length + 1);
 					filters[filters.length - 1] = emojiExcludeFilter;
 				}
@@ -3309,6 +3335,14 @@ public class GameActivity extends NativeActivity implements SurfaceHolder.Callba
 					else
 					{
 						String message = newVirtualKeyboardInput.getText().toString();
+						//#jira UE-50645 Carriage returns can be pasted into single line UMG fields on Android
+						//oddly enough, we have to use events/filters to control the EditText's copy/paste behaviour
+						if(newVirtualKeyboardInput.getMaxLines() == 1 && message.contains("\n"))
+						{
+							message = message.replaceAll("\n" , " ");
+							newVirtualKeyboardInput.setText(message);
+						
+						}
 						nativeVirtualKeyboardChanged(message);
 					}
 				}
